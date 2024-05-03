@@ -1,0 +1,14 @@
+db.runCommand({
+    collMod:"validator",
+    validator:{
+        $jsonSchema:{
+            required:['name','add'],
+            properties:{
+                name:{
+                    bsonType:"number"
+                }
+            }
+        }
+    },
+    validationAction:"error"
+})
