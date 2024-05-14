@@ -34,7 +34,7 @@
 
 db.text.insertMany([{
     name:"utsav",
-    passion:'youtube'
+    passion:'youtube'c:\Users\JSpiders\Downloads\WhatsApp Image 2024-05-10 at 17.56.00.jpeg
 },
 {
     name:"utsav",
