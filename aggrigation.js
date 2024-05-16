@@ -141,3 +141,80 @@ db.dry.insertMany([{name:'utsav',age:10},{name:'c',age:10},{name:'d',age:20},{na
 
 //7.
 db.dry.aggregate([{$group:{_id:"$age",nameofuser:{$push:"$name"}}}])
+   //data set
+   db.lookup.insertMany( [
+    {
+      gender: "male",
+      age: 30,
+      name: "Ravi Kumar",
+      address: "123 Main St, Anytown, USA",
+      mobile: "9876543210"
+    },
+    {
+      gender: "female",
+      age: 25,
+      name: "Priya Patel",
+      address: "456 Elm St, Othertown, USA",
+      mobile: "9876543211"
+    },
+    {
+      gender: "male",
+      age: 35,
+      name: "Arun Sharma",
+      address: "789 Oak St, Anothertown, USA",
+      mobile: "9876543212"
+    },
+    {
+      gender: "female",
+      age: 28,
+      name: "Ananya Singh",
+      address: "456 Pine St, Citytown, USA",
+      mobile: "9876543213"
+    },
+    {
+      gender: "male",
+      age: 32,
+      name: "Vikram Yadav",
+      address: "789 Cedar St, Villagetown, USA",
+      mobile: "9876543214"
+    },
+    {
+      gender: "female",
+      age: 22,
+      name: "Neha Gupta",
+      address: "123 Maple St, Smalltown, USA",
+      mobile: "9876543215"
+    },
+    {
+      gender: "male",
+      age: 40,
+      name: "Sandeep Reddy",
+      address: "456 Birch St, Largetown, USA",
+      mobile: "9876543216"
+    },
+    {
+      gender: "female",
+      age: 27,
+      name: "Shreya Mishra",
+      address: "789 Walnut St, Beachtown, USA",
+      mobile: "9876543217"
+    },
+    {
+      gender: "male",
+      age: 33,
+      name: "Amit Das",
+      address: "123 Ash St, Mountaintown, USA",
+      mobile: "9876543218"
+    },
+    {
+      gender: "female",
+      age: 29,
+      name: "Kavita Choudhary",
+      address: "456 Hickory St, Hilltown, USA",
+      mobile: "9876543219"
+    }
+   
+  
+   
+  ])
+db.lookup.aggregate([{$match:{gender:"male"}},{$bucket:{groupBy:"$age",boundaries:[29,33,40],default:"grater than 30",output:{count:{$sum:1},names:{$push:"$name"}}}}])
